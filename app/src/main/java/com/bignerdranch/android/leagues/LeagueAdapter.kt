@@ -1,10 +1,9 @@
 package com.bignerdranch.android.leagues
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bignerdranch.android.leagues.databinding.ListItemLeagueBinding
 
 class LeagueAdapter(
     private val leagues: List<League>,
@@ -12,7 +11,7 @@ class LeagueAdapter(
 ) : RecyclerView.Adapter<LeagueAdapter.LeagueHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = LeagueHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.list_item_league, parent, false)
+        ListItemLeagueBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
     override fun onBindViewHolder(holder: LeagueHolder, position: Int) {
@@ -21,13 +20,11 @@ class LeagueAdapter(
 
     override fun getItemCount() = leagues.size
 
-    inner class LeagueHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-
-        private val titleTextView: TextView = itemView.findViewById(R.id.league_title)
+    inner class LeagueHolder(private val binding: ListItemLeagueBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(league: League) {
-            view.setOnClickListener { onItemClick(league) }
-            titleTextView.text = league.title
+            binding.root.setOnClickListener { onItemClick(league) }
+            binding.leagueTitle.text = league.title
         }
     }
 }

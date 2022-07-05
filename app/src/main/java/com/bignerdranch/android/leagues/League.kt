@@ -1,3 +1,9 @@
 package com.bignerdranch.android.leagues
 
-data class League(var title: String = "")
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class League(
+    var title: String = ""
+) : Parcelable

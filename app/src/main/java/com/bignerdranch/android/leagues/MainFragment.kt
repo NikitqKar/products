@@ -5,14 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.bignerdranch.android.leagues.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
 
+    private var binding: MainFragmentBinding? = null
+
     private val leagueListViewModel: LeagueListViewModel by lazy {
-        ViewModelProviders.of(this).get(LeagueListViewModel::class.java)
+        ViewModelProvider(this)[LeagueListViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -20,27 +22,29 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.main_fragment, container, false)
-        val rcView = view.findViewById(R.id.rcView) as RecyclerView
+        binding = MainFragmentBinding.inflate(inflater, container, false)
 
         val leagueAdapter = LeagueAdapter(leagueListViewModel.leagues) {
-            requireActivity().supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragment_container, NewFragment.newInstance())
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, NewFragment.newInstance(it))
                 .addToBackStack(it.title)
                 .commit()
         }
 
-        rcView.apply {
+        binding?.rcView?.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = leagueAdapter
         }
 
-        return view
+        return binding?.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
     companion object {
         fun newInstance() = MainFragment()
-
     }
 }
