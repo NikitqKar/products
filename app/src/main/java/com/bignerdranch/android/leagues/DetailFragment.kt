@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bignerdranch.android.leagues.databinding.DetailedFragmentBinding
 
-class NewFragment : Fragment() {
+class DetailedFragment : Fragment() {
 
     private var binding: DetailedFragmentBinding? = null
 
@@ -28,7 +28,7 @@ class NewFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(league: League) = NewFragment().apply {
+        fun newInstance(league: League) = DetailedFragment().apply {
             arguments = Bundle().apply { putParcelable("data", league) }
         }
     }
