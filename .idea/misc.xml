@@ -8,10 +8,13 @@
         <entry key="..\:/Users/Nik/AndroidStudioProjects/09_RecyclerView/09_RecyclerView/leagues/app/src/main/res/layout/list_item_crime.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Nik/AndroidStudioProjects/09_RecyclerView/09_RecyclerView/leagues/app/src/main/res/layout/main_fragment.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Nik/AndroidStudioProjects/leagues/leagues1.0/leagues/app/src/main/res/layout/activity_main.xml" value="0.12037037037037036" />
-        <entry key="..\:/Users/Nik/AndroidStudioProjects/leagues/leagues1.0/leagues/app/src/main/res/layout/detailed_fragment.xml" value="0.1" />
-        <entry key="..\:/Users/Nik/AndroidStudioProjects/leagues/leagues1.0/leagues/app/src/main/res/layout/list_item_league.xml" value="0.1" />
+        <entry key="..\:/Users/Nik/AndroidStudioProjects/leagues/leagues1.0/leagues/app/src/main/res/layout/detailed_fragment.xml" value="0.33" />
+        <entry key="..\:/Users/Nik/AndroidStudioProjects/leagues/leagues1.0/leagues/app/src/main/res/layout/fragment_detailes.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Nik/AndroidStudioProjects/leagues/leagues1.0/leagues/app/src/main/res/layout/fragment_feteail_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Nik/AndroidStudioProjects/leagues/leagues1.0/leagues/app/src/main/res/layout/fragment_leageu_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Nik/AndroidStudioProjects/leagues/leagues1.0/leagues/app/src/main/res/layout/list_item_league.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Nik/AndroidStudioProjects/leagues/leagues1.0/leagues/app/src/main/res/layout/list_item_team.xml" value="0.18541666666666667" />
-        <entry key="..\:/Users/Nik/AndroidStudioProjects/leagues/leagues1.0/leagues/app/src/main/res/layout/main_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Nik/AndroidStudioProjects/leagues/leagues1.0/leagues/app/src/main/res/layout/main_fragment.xml" value="0.14666666666666667" />
       </map>
     </option>
   </component>

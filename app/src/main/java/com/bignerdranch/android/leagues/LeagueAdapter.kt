@@ -6,9 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.leagues.databinding.ListItemLeagueBinding
 
 class LeagueAdapter(
-    private val leagues: List<League>,
     private val onItemClick: ((League) -> Unit)
 ) : RecyclerView.Adapter<LeagueAdapter.LeagueHolder>() {
+
+    private var leagues: List<League> = listOf()
+
+    fun setLeagues(newLeagues: List<League>) {
+        leagues = newLeagues
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = LeagueHolder(
         ListItemLeagueBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -20,11 +26,13 @@ class LeagueAdapter(
 
     override fun getItemCount() = leagues.size
 
-    inner class LeagueHolder(private val binding: ListItemLeagueBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class LeagueHolder(private val binding: ListItemLeagueBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(league: League) {
             binding.root.setOnClickListener { onItemClick(league) }
-            binding.leagueTitle.text = league.title
+            binding.leagueTitle.text = league.name
+            binding.leagueAbbr.text = league.abbr
         }
     }
 }
