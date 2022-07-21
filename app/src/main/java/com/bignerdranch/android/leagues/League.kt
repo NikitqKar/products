@@ -1,7 +1,6 @@
 package com.bignerdranch.android.leagues
 
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 data class Leagues(
@@ -14,5 +13,12 @@ data class League(
     val id: String,
     val abbr: String,
     val name: String,
-    val slug: String
+    val slug: String,
+    val logos: Logos
 ) : Parcelable
+
+@Parcelize
+data class Logos(val light: String, val dark: String): Parcelable
+{
+
+}

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.leagues.databinding.ListItemLeagueBinding
+import com.squareup.picasso.Picasso
 
 class LeagueAdapter(
     private val onItemClick: ((League) -> Unit)
@@ -32,7 +33,9 @@ class LeagueAdapter(
         fun bind(league: League) {
             binding.root.setOnClickListener { onItemClick(league) }
             binding.leagueTitle.text = league.name
-            binding.leagueAbbr.text = league.abbr
+            Picasso.get()
+                .load(league.logos.light)
+                .into(binding.imageView)
         }
     }
 }
