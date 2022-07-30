@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bignerdranch.android.leagues.databinding.DetailedFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 class DetailFragment : Fragment() {
 
