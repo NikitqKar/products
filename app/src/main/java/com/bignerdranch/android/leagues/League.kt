@@ -19,6 +19,3 @@ data class League(
 
 @Parcelize
 data class Logos(val light: String, val dark: String): Parcelable
-{
-
-}
