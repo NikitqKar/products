@@ -1,8 +1,10 @@
 package com.bignerdranch.android.leagues
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -11,6 +13,13 @@ class MainViewModel @Inject constructor(private val leagueRepository: LeagueRepo
     val leagues = MutableLiveData(listOf<League>())
 
     fun update() {
-        leagueRepository.update { leagues.value = it ?: emptyList() }
+        CoroutineScope(Dispatchers.Main).launch {
+            leagueRepository.update {
+                leagues.value = it ?: emptyList()
+            }
+        }
     }
+
 }
+
+
