@@ -29,8 +29,12 @@ class MainFragment : Fragment() {
             adapter = leagueAdapter
         }
 
+
         mix.setOnClickListener { viewModel.update() }
-        viewModel.leagues.observe(viewLifecycleOwner) { leagueAdapter?.setLeagues(it) }
+        viewModel.leagues.observe(viewLifecycleOwner) {
+            leagueAdapter?.setLeagues(it)
+            leagueAdapter?.setData(it)
+        }
     }.root
 
 

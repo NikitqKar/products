@@ -2,6 +2,7 @@ package com.bignerdranch.android.leagues
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.leagues.databinding.ListItemLeagueBinding
 import com.squareup.picasso.Picasso
@@ -26,6 +27,13 @@ class LeagueAdapter(
     }
 
     override fun getItemCount() = leagues.size
+
+    fun setData(newLeagueList : List<League>){
+        val diffUtil = LeagueItemDiffCallback(leagues, newLeagueList)
+        val diffResults = DiffUtil.calculateDiff(diffUtil)
+        leagues = newLeagueList
+        diffResults.dispatchUpdatesTo(this)
+    }
 
     inner class LeagueHolder(private val binding: ListItemLeagueBinding) :
         RecyclerView.ViewHolder(binding.root) {
