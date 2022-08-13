@@ -13,34 +13,31 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainFragment : Fragment() {
 
-    private var leagueAdapter: LeagueAdapter? = null
     private var binding: MainFragmentBinding? = null
     private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ) = MainFragmentBinding.inflate(inflater, container, false).apply {
-        leagueAdapter = LeagueAdapter {
+        val leagueAdapter = LeagueAdapter {
             findNavController().navigate(MainFragmentDirections.actionMainToDetail(it))
         }
+        val layout = LinearLayoutManager(context)
 
         rcView.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = layout
             adapter = leagueAdapter
         }
 
-
         mix.setOnClickListener { viewModel.update() }
-        viewModel.leagues.observe(viewLifecycleOwner) {
-            leagueAdapter?.setLeagues(it)
-            leagueAdapter?.setData(it)
-        }
-    }.root
 
+        viewModel.leagues.observe(viewLifecycleOwner) { leagueAdapter.submitList(it){
+            layout.scrollToPositionWithOffset(0, 0)
+        } }
+    }.root
 
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
-        leagueAdapter = null
     }
 }
