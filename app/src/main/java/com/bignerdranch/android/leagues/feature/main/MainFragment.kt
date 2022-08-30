@@ -1,4 +1,4 @@
-package com.bignerdranch.android.leagues
+package com.bignerdranch.android.leagues.feature.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,11 +29,12 @@ class MainFragment : Fragment() {
             adapter = leagueAdapter
         }
 
-        mix.setOnClickListener { viewModel.update() }
+        swipeRefreshLayout.setOnRefreshListener { viewModel.update() }
 
-        viewModel.leagues.observe(viewLifecycleOwner) { leagueAdapter.submitList(it){
-            layout.scrollToPositionWithOffset(0, 0)
-        } }
+        viewModel.leagues.observe(viewLifecycleOwner) {
+            leagueAdapter.submitList(it) { layout.scrollToPositionWithOffset(0, 0) }
+            swipeRefreshLayout.isRefreshing = false
+        }
     }.root
 
     override fun onDestroyView() {

@@ -1,4 +1,4 @@
-package com.bignerdranch.android.leagues
+package com.bignerdranch.android.leagues.data.entity
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -18,7 +18,4 @@ data class League(
 ) : Parcelable
 
 @Parcelize
-data class Logos(val light: String, val dark: String): Parcelable
-{
-
-}
+data class Logos(val light: String, val dark: String) : Parcelable

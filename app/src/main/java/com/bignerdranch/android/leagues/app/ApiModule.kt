@@ -1,12 +1,13 @@
-package com.bignerdranch.android.leagues
+package com.bignerdranch.android.leagues.app
 
+import com.bignerdranch.android.leagues.data.web.LeagueRepository
+import com.bignerdranch.android.leagues.data.web.LeaguesApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)

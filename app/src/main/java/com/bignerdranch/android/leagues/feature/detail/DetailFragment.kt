@@ -1,4 +1,4 @@
-package com.bignerdranch.android.leagues
+package com.bignerdranch.android.leagues.feature.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bignerdranch.android.leagues.databinding.DetailedFragmentBinding
 import com.squareup.picasso.Picasso
-import dagger.hilt.android.AndroidEntryPoint
 
 class DetailFragment : Fragment() {
 

@@ -4,18 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <Button
-        android:id="@+id/mix"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="mixOnCLick"
-        android:text="mix" />
+        android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:scrollbars="vertical" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

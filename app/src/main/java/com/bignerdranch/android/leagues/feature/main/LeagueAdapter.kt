@@ -1,10 +1,11 @@
-package com.bignerdranch.android.leagues
+package com.bignerdranch.android.leagues.feature.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bignerdranch.android.leagues.data.entity.League
 import com.bignerdranch.android.leagues.databinding.ListItemLeagueBinding
 import com.squareup.picasso.Picasso
 
@@ -22,11 +23,18 @@ class LeagueAdapter(private val onItemClick: ((League) -> Unit)) :
     inner class LeagueHolder(private val binding: ListItemLeagueBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(league: League) {
-            binding.root.setOnClickListener { onItemClick(league) }
-            binding.leagueTitle.text = league.name
-            Picasso.get()
-                .load(league.logos.light)
-                .into(binding.imageView)
+            binding.apply {
+                root.setOnClickListener { onItemClick(league) }
+
+                leagueTitle.text = league.name
+                leagueAbbr.text = league.abbr
+                leagueId.text = league.id
+                leagueSlug.text = league.slug
+
+                Picasso.get()
+                    .load(league.logos.light)
+                    .into(imageView)
+            }
         }
     }
 }

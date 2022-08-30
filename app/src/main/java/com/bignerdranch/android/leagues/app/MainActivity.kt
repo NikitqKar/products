@@ -1,4 +1,4 @@
-package com.bignerdranch.android.leagues
+package com.bignerdranch.android.leagues.app
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
