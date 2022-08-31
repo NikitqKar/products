@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.leagues.data.entity.League
 import com.bignerdranch.android.leagues.databinding.ListItemLeagueBinding
-import com.squareup.picasso.Picasso
+import coil.load
+import coil.transform.CircleCropTransformation
 
 class LeagueAdapter(private val onItemClick: ((League) -> Unit)) :
     ListAdapter<League, LeagueAdapter.LeagueHolder>(LeagueDiff()) {
@@ -20,20 +21,21 @@ class LeagueAdapter(private val onItemClick: ((League) -> Unit)) :
         holder.bind(getItem(position))
     }
 
-    inner class LeagueHolder(private val binding: ListItemLeagueBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class LeagueHolder(private val binding: ListItemLeagueBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(league: League) {
             binding.apply {
                 root.setOnClickListener { onItemClick(league) }
 
                 leagueTitle.text = league.name
-                leagueAbbr.text = league.abbr
-                leagueId.text = league.id
-                leagueSlug.text = league.slug
 
-                Picasso.get()
-                    .load(league.logos.light)
-                    .into(imageView)
+                imageView.load(league.logos.light) {
+                    crossfade(true)
+                    transformations(CircleCropTransformation())
+
+
+                }
             }
         }
     }
