@@ -21,12 +21,7 @@ class DetailFragment : Fragment() {
         binding = this
         tvDeteiled.text = args.league.name
 
-        imView.load(args.league.logos.light) {
-            crossfade(true)
-            transformations(CircleCropTransformation())
-
-
-        }
+        imView.load(args.league.logos.light)
     }.root
 
 

@@ -27,15 +27,11 @@ class LeagueAdapter(private val onItemClick: ((League) -> Unit)) :
         fun bind(league: League) {
             binding.apply {
                 root.setOnClickListener { onItemClick(league) }
-
+                leagueSlug.text = league.slug
+                leagueId.text = league.id
+                leagueAbbr.text = league.abbr
                 leagueTitle.text = league.name
-
-                imageView.load(league.logos.light) {
-                    crossfade(true)
-                    transformations(CircleCropTransformation())
-
-
-                }
+                imageView.load(league.logos.light)
             }
         }
     }
