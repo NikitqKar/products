@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import coil.load
+import coil.transform.CircleCropTransformation
 import com.bignerdranch.android.leagues.databinding.DetailedFragmentBinding
 import com.squareup.picasso.Picasso
 
@@ -18,9 +20,8 @@ class DetailFragment : Fragment() {
     ) = DetailedFragmentBinding.inflate(inflater, container, false).apply {
         binding = this
         tvDeteiled.text = args.league.name
-        Picasso.get()
-            .load(args.league.logos.light)
-            .into(binding!!.imView)
+
+        imView.load(args.league.logos.light)
     }.root
 
 
