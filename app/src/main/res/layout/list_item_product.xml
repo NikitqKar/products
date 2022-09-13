@@ -25,7 +25,7 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/league_title"
+            android:id="@+id/product_title"
             android:layout_width="250dp"
             android:layout_height="24dp"
             android:layout_margin="4dp"
@@ -36,13 +36,13 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/league_abbr"
+            app:layout_constraintBottom_toTopOf="@id/product_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/league_abbr"
+            android:id="@+id/product_description"
             android:layout_width="250dp"
             android:layout_height="24dp"
             android:layout_margin="4dp"
@@ -52,13 +52,13 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/league_slug"
-            app:layout_constraintEnd_toEndOf="@+id/league_title"
-            app:layout_constraintStart_toStartOf="@+id/league_title"
-            app:layout_constraintTop_toBottomOf="@+id/league_title" />
+            app:layout_constraintBottom_toTopOf="@id/product_brand"
+            app:layout_constraintEnd_toEndOf="@+id/product_title"
+            app:layout_constraintStart_toStartOf="@+id/product_title"
+            app:layout_constraintTop_toBottomOf="@+id/product_title" />
 
         <TextView
-            android:id="@+id/league_slug"
+            android:id="@+id/product_brand"
             android:layout_width="250dp"
             android:layout_height="24dp"
             android:layout_margin="4dp"
@@ -68,13 +68,13 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/league_id"
-            app:layout_constraintEnd_toEndOf="@+id/league_abbr"
-            app:layout_constraintStart_toStartOf="@+id/league_abbr"
-            app:layout_constraintTop_toBottomOf="@+id/league_abbr" />
+            app:layout_constraintBottom_toTopOf="@+id/product_price"
+            app:layout_constraintEnd_toEndOf="@+id/product_description"
+            app:layout_constraintStart_toStartOf="@+id/product_description"
+            app:layout_constraintTop_toBottomOf="@+id/product_description" />
 
         <TextView
-            android:id="@+id/league_id"
+            android:id="@+id/product_price"
             android:layout_width="250dp"
             android:layout_height="24dp"
             android:layout_margin="4dp"
@@ -85,12 +85,12 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/league_slug"
-            app:layout_constraintStart_toStartOf="@+id/league_slug"
-            app:layout_constraintTop_toBottomOf="@+id/league_slug" />
+            app:layout_constraintEnd_toEndOf="@+id/product_brand"
+            app:layout_constraintStart_toStartOf="@+id/product_brand"
+            app:layout_constraintTop_toBottomOf="@+id/product_brand" />
 
         <TextView
-            android:id="@+id/league_index"
+            android:id="@+id/productIndexTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"

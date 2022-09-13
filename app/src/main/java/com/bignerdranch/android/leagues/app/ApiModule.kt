@@ -2,10 +2,10 @@ package com.bignerdranch.android.leagues.app
 
 import android.content.Context
 import androidx.room.Room
-import com.bignerdranch.android.leagues.data.database.LeagueDatabase
-import com.bignerdranch.android.leagues.data.database.LeagueDao
-import com.bignerdranch.android.leagues.data.web.LeagueRepository
-import com.bignerdranch.android.leagues.data.web.LeaguesApi
+import com.bignerdranch.android.leagues.data.ProductRepository
+import com.bignerdranch.android.leagues.data.database.ProductDao
+import com.bignerdranch.android.leagues.data.database.ProductDatabase
+import com.bignerdranch.android.leagues.data.web.ProductApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,25 +22,25 @@ class AppModule {
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
-        .baseUrl("https://api-football-standings.azharimm.site")
+        .baseUrl("https://dummyjson.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
     @Provides
     @Singleton
-    fun provideApi(retrofit: Retrofit): LeaguesApi = retrofit.create(LeaguesApi::class.java)
+    fun provideApi(retrofit: Retrofit): ProductApi = retrofit.create(ProductApi::class.java)
 
     @Provides
     @Singleton
-    fun provideRepo(api: LeaguesApi, dao: LeagueDao): LeagueRepository = LeagueRepository(api, dao)
+    fun provideRepo(api: ProductApi, dao: ProductDao): ProductRepository = ProductRepository(api, dao)
 
     @Provides
     @Singleton
-    fun provideLeagueDao(leagueDatabase: LeagueDatabase): LeagueDao = leagueDatabase.leagueDao()
+    fun provideProductDao(productDatabase: ProductDatabase): ProductDao = productDatabase.productDao()
 
     @Provides
     @Singleton
-    fun provideDatabase(@ApplicationContext appContext: Context): LeagueDatabase = Room.databaseBuilder(
-        appContext, LeagueDatabase::class.java, "LeaguesDatabase"
+    fun provideDatabase(@ApplicationContext appContext: Context): ProductDatabase = Room.databaseBuilder(
+        appContext, ProductDatabase::class.java, "ProductDatabase"
     ).build()
 }

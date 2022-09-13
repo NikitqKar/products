@@ -19,9 +19,8 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ) = DetailedFragmentBinding.inflate(inflater, container, false).apply {
         binding = this
-        tvDeteiled.text = args.league.name
-
-        imView.load(args.league.logos.light)
+        tvDeteiled.text = args.product.title
+        imView.load(args.product.thumbnail)
     }.root
 
 

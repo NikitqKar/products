@@ -24,8 +24,8 @@
         tools:layout="@layout/detailed_fragment">
 
         <argument
-            android:name="league"
-            app:argType="com.bignerdranch.android.leagues.data.entity.League"
+            android:name="product"
+            app:argType="com.bignerdranch.android.leagues.data.entity.Product"
             app:nullable="false"/>
     </fragment>
 </navigation>

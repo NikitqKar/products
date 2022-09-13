@@ -19,20 +19,20 @@ class MainFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ) = MainFragmentBinding.inflate(inflater, container, false).apply {
-        val leagueAdapter = LeagueAdapter {
+        val productAdapter = ProductAdapter {
             findNavController().navigate(MainFragmentDirections.actionMainToDetail(it))
         }
         val layout = LinearLayoutManager(context)
 
         rcView.apply {
             layoutManager = layout
-            adapter = leagueAdapter
+            adapter = productAdapter
         }
 
         swipeRefreshLayout.setOnRefreshListener { viewModel.update() }
 
-        viewModel.leagues.observe(viewLifecycleOwner) {
-            leagueAdapter.submitList(it) { layout.scrollToPositionWithOffset(0, 0) }
+        viewModel.products.observe(viewLifecycleOwner) {
+            productAdapter.submitList(it) { layout.scrollToPositionWithOffset(0, 0) }
             swipeRefreshLayout.isRefreshing = false
         }
     }.root
