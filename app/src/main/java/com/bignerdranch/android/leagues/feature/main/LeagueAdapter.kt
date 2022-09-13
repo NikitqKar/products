@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.leagues.data.entity.League
 import com.bignerdranch.android.leagues.databinding.ListItemLeagueBinding
 import coil.load
-import coil.transform.CircleCropTransformation
 
 class LeagueAdapter(private val onItemClick: ((League) -> Unit)) :
     ListAdapter<League, LeagueAdapter.LeagueHolder>(LeagueDiff()) {
@@ -31,6 +30,7 @@ class LeagueAdapter(private val onItemClick: ((League) -> Unit)) :
                 leagueId.text = league.id
                 leagueAbbr.text = league.abbr
                 leagueTitle.text = league.name
+                leagueIndex.text = "${league.index}"
                 imageView.load(league.logos.light)
             }
         }

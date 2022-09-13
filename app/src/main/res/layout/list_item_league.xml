@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_margin="8dp"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
     app:cardCornerRadius="23dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         android:orientation="horizontal">
-
 
         <ImageView
             android:id="@+id/imageView"
@@ -24,7 +23,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:srcCompat="@tools:sample/avatars" />
-
 
         <TextView
             android:id="@+id/league_title"
@@ -38,12 +36,10 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/league_abbr"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.101"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/league_abbr"
@@ -56,11 +52,10 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/league_slug"
             app:layout_constraintEnd_toEndOf="@+id/league_title"
             app:layout_constraintStart_toStartOf="@+id/league_title"
-            app:layout_constraintTop_toBottomOf="@+id/league_title"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/league_title" />
 
         <TextView
             android:id="@+id/league_slug"
@@ -73,11 +68,10 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/league_id"
             app:layout_constraintEnd_toEndOf="@+id/league_abbr"
             app:layout_constraintStart_toStartOf="@+id/league_abbr"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.59000003" />
+            app:layout_constraintTop_toBottomOf="@+id/league_abbr" />
 
         <TextView
             android:id="@+id/league_id"
@@ -93,9 +87,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/league_slug"
             app:layout_constraintStart_toStartOf="@+id/league_slug"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.9" />
+            app:layout_constraintTop_toBottomOf="@+id/league_slug" />
 
-
+        <TextView
+            android:id="@+id/league_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

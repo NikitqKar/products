@@ -1,16 +1,23 @@
-package com.bignerdranch.android.leagues.data.Database
+package com.bignerdranch.android.leagues.data.database
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.bignerdranch.android.leagues.data.entity.League
 
 @Dao
-interface LeaguesDao {
+interface LeagueDao {
 
     @Query("SELECT * FROM leagues")
-    fun getAllLeagues(): List<League>
+    fun getLeagues(): List<League>
 
-    @Insert
-    fun insertLeagues(leagues: League)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertLeague(leagues: League)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertLeagues(leagues: List<League>)
+
+    @Query("DELETE FROM leagues")
+    fun clearLeagues()
 }
