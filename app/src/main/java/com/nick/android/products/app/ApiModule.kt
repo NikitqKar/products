@@ -1,11 +1,11 @@
-package com.bignerdranch.android.leagues.app
+package com.nick.android.products.app
 
 import android.content.Context
 import androidx.room.Room
-import com.bignerdranch.android.leagues.data.ProductRepository
-import com.bignerdranch.android.leagues.data.database.ProductDao
-import com.bignerdranch.android.leagues.data.database.ProductDatabase
-import com.bignerdranch.android.leagues.data.web.ProductApi
+import com.nick.android.products.data.ProductRepository
+import com.nick.android.products.data.database.ProductDao
+import com.nick.android.products.data.database.ProductDatabase
+import com.nick.android.products.data.web.ProductApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

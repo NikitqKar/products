@@ -1,6 +1,6 @@
-package com.bignerdranch.android.leagues.data.web
+package com.nick.android.products.data.web
 
-import com.bignerdranch.android.leagues.data.entity.Products
+import com.nick.android.products.data.entity.Products
 import retrofit2.http.GET
 
 interface ProductApi {

@@ -1,4 +1,4 @@
-package com.bignerdranch.android.leagues
+package com.nick.android.products
 
 import org.junit.Test
 

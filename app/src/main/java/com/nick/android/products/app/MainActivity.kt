@@ -1,8 +1,8 @@
-package com.bignerdranch.android.leagues.app
+package com.nick.android.products.app
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.bignerdranch.android.leagues.databinding.ActivityMainBinding
+import com.nick.android.products.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

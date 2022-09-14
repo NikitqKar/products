@@ -1,13 +1,13 @@
-package com.bignerdranch.android.leagues.feature.main
+package com.nick.android.products.feature.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bignerdranch.android.leagues.databinding.ListItemProductBinding
+import com.nick.android.products.databinding.ListItemProductBinding
 import coil.load
-import com.bignerdranch.android.leagues.data.entity.Product
+import com.nick.android.products.data.entity.Product
 
 class ProductAdapter(private val onItemClick: ((Product) -> Unit)) :
     ListAdapter<Product, ProductAdapter.ProductHolder>(ProductsDiff()) {

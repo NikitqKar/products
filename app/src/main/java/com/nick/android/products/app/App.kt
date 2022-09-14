@@ -1,4 +1,4 @@
-package com.bignerdranch.android.leagues.app
+package com.nick.android.products.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

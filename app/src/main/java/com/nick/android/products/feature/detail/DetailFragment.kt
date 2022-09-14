@@ -1,4 +1,4 @@
-package com.bignerdranch.android.leagues.feature.detail
+package com.nick.android.products.feature.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import coil.load
-import coil.transform.CircleCropTransformation
-import com.bignerdranch.android.leagues.databinding.DetailedFragmentBinding
-import com.squareup.picasso.Picasso
+import com.nick.android.products.databinding.DetailedFragmentBinding
 
 class DetailFragment : Fragment() {
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.bignerdranch.android.leagues.feature.main.MainFragment"
+        android:name="com.nick.android.products.feature.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/main_fragment" >
 
@@ -19,13 +19,13 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.bignerdranch.android.leagues.feature.detail.DetailFragment"
+        android:name="com.nick.android.products.feature.detail.DetailFragment"
         android:label="DetailFragment"
         tools:layout="@layout/detailed_fragment">
 
         <argument
             android:name="product"
-            app:argType="com.bignerdranch.android.leagues.data.entity.Product"
+            app:argType="com.nick.android.products.data.entity.Product"
             app:nullable="false"/>
     </fragment>
 </navigation>

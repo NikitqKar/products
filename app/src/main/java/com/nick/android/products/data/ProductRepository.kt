@@ -1,9 +1,9 @@
-package com.bignerdranch.android.leagues.data
+package com.nick.android.products.data
 
 import android.util.Log
-import com.bignerdranch.android.leagues.data.database.ProductDao
-import com.bignerdranch.android.leagues.data.entity.Product
-import com.bignerdranch.android.leagues.data.web.ProductApi
+import com.nick.android.products.data.database.ProductDao
+import com.nick.android.products.data.entity.Product
+import com.nick.android.products.data.web.ProductApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

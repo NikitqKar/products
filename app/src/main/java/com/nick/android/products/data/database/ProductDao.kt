@@ -1,10 +1,10 @@
-package com.bignerdranch.android.leagues.data.database
+package com.nick.android.products.data.database
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.bignerdranch.android.leagues.data.entity.Product
+import com.nick.android.products.data.entity.Product
 
 @Dao
 interface ProductDao {
