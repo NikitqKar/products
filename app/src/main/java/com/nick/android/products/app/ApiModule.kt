@@ -2,8 +2,7 @@ package com.nick.android.products.app
 
 import android.content.Context
 import androidx.room.Room
-import com.nick.android.products.data.ProductRepository
-import com.nick.android.products.data.database.ProductDao
+import com.nick.android.products.data.ProductPagingDataSource
 import com.nick.android.products.data.database.ProductDatabase
 import com.nick.android.products.data.web.ProductApi
 import dagger.Module
@@ -32,11 +31,11 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideRepo(api: ProductApi, dao: ProductDao): ProductRepository = ProductRepository(api, dao)
+    fun provideProductDao(productDatabase: ProductDatabase) = productDatabase.productDao()
 
     @Provides
     @Singleton
-    fun provideProductDao(productDatabase: ProductDatabase): ProductDao = productDatabase.productDao()
+    fun provideProductPagingDataSource(api: ProductApi): ProductPagingDataSource = ProductPagingDataSource(api)
 
     @Provides
     @Singleton
