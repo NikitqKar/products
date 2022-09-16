@@ -1,14 +1,19 @@
 package com.nick.android.products.feature.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nick.android.products.databinding.MainFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -29,11 +34,16 @@ class MainFragment : Fragment() {
             adapter = productAdapter
         }
 
-        swipeRefreshLayout.setOnRefreshListener { viewModel.update() }
+        swipeRefreshLayout.setOnRefreshListener {
+            lifecycleScope.launch {
+                //TODO RESET ADAPTER
+                swipeRefreshLayout.isRefreshing = false
+            }
+        }
 
-        viewModel.products.observe(viewLifecycleOwner) {
-            productAdapter.submitList(it) { layout.scrollToPositionWithOffset(0, 0) }
-            swipeRefreshLayout.isRefreshing = false
+        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+            viewModel.products.collectLatest {
+                productAdapter.submitData(it) }
         }
     }.root
 

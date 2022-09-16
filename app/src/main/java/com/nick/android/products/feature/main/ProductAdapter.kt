@@ -2,22 +2,22 @@ package com.nick.android.products.feature.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.nick.android.products.databinding.ListItemProductBinding
 import coil.load
 import com.nick.android.products.data.entity.Product
+import com.nick.android.products.databinding.ListItemProductBinding
 
 class ProductAdapter(private val onItemClick: ((Product) -> Unit)) :
-    ListAdapter<Product, ProductAdapter.ProductHolder>(ProductsDiff()) {
+    PagingDataAdapter<Product, ProductAdapter.ProductHolder>(ProductsDiff()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ProductHolder(
         ListItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
     override fun onBindViewHolder(holder: ProductHolder, position: Int) {
-        holder.bind(getItem(position))
+        getItem(position)?.let { holder.bind(it) }
     }
 
     inner class ProductHolder(private val binding: ListItemProductBinding) :
@@ -30,7 +30,7 @@ class ProductAdapter(private val onItemClick: ((Product) -> Unit)) :
                 productPrice.text = product.price.toString()
                 productDescription.text = product.description
                 productTitle.text = product.title
-                productIndexTv.text = "${product.index}"
+                productIndexTv.text = "${product.id}"
                 imageView.load(product.thumbnail)
             }
         }
